@@ -1,0 +1,249 @@
+<!-- Nav MAin ...... -->
+<nav class="nav" id="nav">
+  <div class="nav-center">
+    <!--nav header-->
+    <div class="nav-header">
+      <span
+        class="bars"
+        style="font-size: 30px; cursor: pointer"
+        onclick="openNav()"
+        >&#9776;</span
+      >
+      <h2>
+        Mathew<span class="codex">Codex</span>
+
+        <span class="web-span">webDeveloper</span>
+      </h2>
+    </div>
+
+    <ul class="nav-links">
+      <li>
+        <a href="https://mathewCodex.github.io">Home</a>
+      </li>
+      <!-- <li>
+        <a href="/about">About</a>
+      </li> -->
+      <li>
+        <a href="/blogs/create">add-blog</a>
+      </li>
+      <li>
+        <a href="https://mathewCodex-blog-netlify.app">Article</a>
+      </li>
+    </ul>
+  </div>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+      >&times;</a
+    >
+    <a href="#">Home</a>
+    <a href="#">Services</a>
+    <li>
+      <a href="/blogs/create">Add-blog</a>
+    </li>
+    <a href="https://mathewCodex.github.io">My Projects</a>
+
+    <!--social icons-->
+    <ul class="social-icons">
+      <li>
+        <a href="https://www.twitter.com/mathew4codex" class="social-icon">
+          <img
+            src="/tweet.gif"
+            alt="twitter-icon"
+            style="color: white; width: 30px"
+          />
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/mwlite" class="social-icon">
+          <img
+            src="/icons8-linkedin-circled.gif"
+            alt="linkedIn-icon"
+            style="color: white; width: 40px"
+            class="social-icon"
+          />
+        </a>
+      </li>
+      <li>
+        <a href="mathewemmanuel212@gmail.com" class="social-icon">
+          <img
+            src="/gmail.png"
+            alt="gmail-icon"
+            style="color: white; width: 30px"
+          />
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/mathewCodex" class="social-icon">
+          <img
+            src="/gitIcon.png"
+            alt="github-icon"
+            style="color: white; width: 30px"
+          />
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!--end of nav links-->
+</nav>
+<!-- End of Main Nav  -->
+
+<!-- Second section apart from navsection -->
+<div class="section-card">
+  <br />
+  <br />
+  <br />
+  <br />
+  <div class="card">
+    <img src="/IMG_6633.JPG" alt="Avatar" style="width: 100%" />
+  </div>
+  <div class="card1">
+    <!-- <i class="fas fa-code svg1" style="width: 10%"></i> -->
+    <img
+      src="/codetagSvg.png"
+      alt="delete-icon"
+      style="width: 40%"
+      class="svg1"
+    />
+  </div>
+  <div class="card2">
+    <img src="/IMG_6633.JPG" alt="Avatar" style="width: 40%" />
+
+    <p>Architect & Engineer</p>
+  </div>
+  <div class="Html-link">
+    <div class="border">
+      <p class="Html-link1">
+        click to View my projects on
+        <a href="https://mathewCodex.github.io" class="btn"
+          ><span>HTML & Css</span></a
+        >
+      </p>
+    </div>
+  </div>
+</div>
+<div class="quote">
+  <h2>P.S</h2>
+</div>
+<p class="quote-p">"Make it simple but not Harder 😁"</p>
+<!-- slider section -->
+<div class="slider">
+  <div class="slide"><img src="/img-1.jpg" alt="Photo 1" /></div>
+  <div class="slide"><img src="/img-2.jpg" alt="Photo 2" /></div>
+  <div class="slide"><img src="/digital.jpg" alt="Photo 3" /></div>
+  <div class="slide"><img src="/img-4.jpg" alt="Photo 4" /></div>
+  <button class="slider__btn slider__btn--left">&larr;</button>
+  <button class="slider__btn slider__btn--right">&rarr;</button>
+  <div class="dots"></div>
+</div>
+<script defer>
+  const navbar = document.querySelector(".nav");
+
+  window.addEventListener("scroll", function () {
+    if (window.pageYOffset > 20) {
+      navbar.classList.add("sticky");
+      // alert("ok");
+    } else {
+      navbar.classList.remove("sticky");
+      // console.log("ok");
+    }
+  });
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    console.log("ok");
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+  console.log("ok");
+
+  ///////////////////////////////////////
+  // Slider
+  const slider = function () {
+    const slides = document.querySelectorAll(".slide");
+    const btnLeft = document.querySelector(".slider__btn--left");
+    const btnRight = document.querySelector(".slider__btn--right");
+    const dotContainer = document.querySelector(".dots");
+
+    let curSlide = 0;
+    const maxSlide = slides.length;
+
+    // Functions
+    const createDots = function () {
+      slides.forEach(function (_, i) {
+        dotContainer.insertAdjacentHTML(
+          "beforeend",
+          `<button class="dots__dot" data-slide="${i}"></button>`
+        );
+      });
+    };
+
+    const activateDot = function (slide) {
+      document
+        .querySelectorAll(".dots__dot")
+        .forEach((dot) => dot.classList.remove("dots__dot--active"));
+
+      document
+        .querySelector(`.dots__dot[data-slide="${slide}"]`)
+        .classList.add("dots__dot--active");
+    };
+
+    const goToSlide = function (slide) {
+      slides.forEach(
+        (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+      );
+    };
+
+    // Next slide
+    const nextSlide = function () {
+      if (curSlide === maxSlide - 1) {
+        curSlide = 0;
+      } else {
+        curSlide++;
+      }
+
+      goToSlide(curSlide);
+      activateDot(curSlide);
+    };
+
+    const prevSlide = function () {
+      if (curSlide === 0) {
+        curSlide = maxSlide - 1;
+      } else {
+        curSlide--;
+      }
+      goToSlide(curSlide);
+      activateDot(curSlide);
+    };
+
+    const init = function () {
+      goToSlide(0);
+      createDots();
+
+      activateDot(0);
+    };
+    init();
+
+    // Event handlers
+    btnRight.addEventListener("click", nextSlide);
+    btnLeft.addEventListener("click", prevSlide);
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") prevSlide();
+      e.key === "ArrowRight" && nextSlide();
+    });
+
+    dotContainer.addEventListener("click", function (e) {
+      if (e.target.classList.contains("dots__dot")) {
+        const { slide } = e.target.dataset;
+        goToSlide(slide);
+        activateDot(slide);
+      }
+    });
+  };
+  slider();
+
+  ///////////////////////////////////////
+</script>
+<!--  ///////////////////////////////////End of second section... -->
