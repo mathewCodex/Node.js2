@@ -11,7 +11,7 @@ const port = process.env.PORT || 3000;
 //express app
 const app = express();
 ///connecting to dataBase...
-const database = `mongodb+srv://mathewCodex:for12345@cluster1.avjfq.mongodb.net/node-tuts?retryWrites=true&w=majority`;
+const database = `mongodb+srv://mathewCodex:*****@cluster1.avjfq.mongodb.net/node-tuts?retryWrites=true&w=majority`;
 mongoose
   .connect(database, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) => {
