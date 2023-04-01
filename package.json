@@ -1,7 +1,7 @@
 {
-  "name": "bootstrap-npm",
+  "name": "blogger",
   "version": "1.0.0",
-  "main": "files.js",
+  "main": "server.js",
   "directories": {
     "doc": "docs"
   },
